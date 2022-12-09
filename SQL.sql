@@ -23,9 +23,19 @@ SELECT col1, col2
 SELECT *
 	FROM tabela
 	ORDER BY col1;
+	--ou ORDER BY col1, col2;
 
 
-
-	
-	
-	
+--Chama tabela sob condição
+SELECT col1
+	FROM tabela
+	WHERE condicao;
+/*
+=  :igual
+!= :diferente
+>  :maior
+<  :menor
+>= :maior ou igual
+<= :menor ou igual
+BETWEEN X AND Y :entre X e Y
+*/
