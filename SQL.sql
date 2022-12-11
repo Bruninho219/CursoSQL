@@ -70,6 +70,8 @@ LOWER(col2) :deixa as letras minúsculas
 SQRT(col3)  :raiz quadrada
 AVG(col4)   :média
 SUM(col5)   :soma
+MIN(col6)   :valor mínimo
+MAX(col7)   :valor máximo
 */
 
 --subconsulta
@@ -79,3 +81,20 @@ FROM employes
 					FROM employes)
 	ORDER BY salary DESC;
 
+
+/*
+LIKE 'A%' :tudo que começa com A
+LIKE '%z' :tudo que acaba com z
+LIKE 'A_' :tudo que começa com A e é seguido por um caracter desconhecido
+*/
+
+--LIKE (condição de pesquisa)
+SELECT col
+FROM tabela
+	WHERE col1 LIKE 'termo_pesquisado'
+
+--
+SELECT name, MIN(cost)
+FROM itens
+	WHERE name1	LIKE '%boxes' AND
+		  seller_id IN ('68', '6', '1');
