@@ -93,8 +93,64 @@ SELECT col
 FROM tabela
 	WHERE col1 LIKE 'termo_pesquisado'
 
---
+--LIKE
 SELECT name, MIN(cost)
 FROM itens
 	WHERE name1	LIKE '%boxes' AND
 		  seller_id IN ('68', '6', '1');
+
+
+--Combinação de tabela
+SELECT custumers.ID, custumers.Name, orders.Name, orders.Amount
+FROM custumers, orders
+	WHERE custumers.ID = orders.Custumer_ID
+	ORDER BY custumers.ID;
+
+
+/*
+INNER JOIN t1 ON t2       :intersecção
+LEFT OUTER JOIN t1 ON t2  :t1 + intersecção
+RIGHT OUTER JOIN t1 ON t2 :t2 + intersecção
+
+*/
+
+--INNER JOIN
+SELECT t1.col1, t2.col2
+FROM t1 INNER JOIN t2
+	ON t1.id = t2.id;
+
+
+--LEFT OUTER JOIN / RIGHT OUTER JOIN
+SELECT t1.col1, t2.col2
+FROM t1.id LEFT OUTER JOIN t2.id
+   --t1.id RIGHT OUTER JOIN t2.id
+	ON t1.id = t2.id;
+
+
+/*
+UNION     :combina varias tabelas equivalentes, e remove duplicatas
+UNION ALL :combina varias tabelas equivalentes
+*/
+
+--UNION
+SELECT id, name, NULL, cep
+FROM tab1
+UNION
+SELECT id, name, city, NULL
+FROM tab2;
+
+
+--INSERT
+INSERT INTO tabela
+VALUE (val1, val2, val3)
+
+
+--UPDATE
+UPDATE tabela
+	SET col1='valor1', col2='valor2')
+WHERE condicao;
+
+
+--DELETE
+DELETE FROM tabela
+WHERE condicao;

@@ -95,9 +95,38 @@ FROM Apartments
 	
 
 --Exercício
+SELECT students.id, students.firstname, students.lastname, teachers.lastname AS teacher 
+FROM students, teachers
+	WHERE students.teacherid = teachers.id
+	ORDER BY students.id;
+
+--Exercício
+SELECT products.productname, products.price, categories.categoryname
+FROM products P INNER JOIN categories C
+	ON P.categoryid = C.id;
 
 
+--Exercício
+SELECT *
+FROM NorwayChess
+UNION
+SELECT *
+FROM TataSteel
+	ORDER BY rating DESC;
+
+--Exercício
+INSERT INTO Garage
+VALUES (6, 'Mercedes-BenZ', 'G 63', 2020);
+INSERT INTO Garage
+VALUES (7, 'PorSche', 'Panamera', 2020);
+
+SELECT *
+FROM Garage;
 
 
+--Exercício
+DELETE FROM products
+WHERE expiredate<1; 
 
-
+SELECT *
+FROM products;
