@@ -142,7 +142,7 @@ FROM tab2;
 
 --INSERT
 INSERT INTO tabela
-VALUE (val1, val2, val3)
+VALUES (val1, val2, val3)
 
 
 --UPDATE
@@ -154,3 +154,105 @@ WHERE condicao;
 --DELETE
 DELETE FROM tabela
 WHERE condicao;
+
+
+/*
+Tipos de dados:
+
+INTEGER    :inteiro
+INT        :inteiro, porém não reconhecido em algumas SGBD
+DATE       :data, AAAA-MM-DD
+VARCHAR(X) :string de tamanho X
+TIME       :tempo, HH:MM:SS
+DATETIME   :data e hora, AAAA-MM-DD HH:MM:SS
+BLOB       :grandes objetos
+TEXT       :grandes textos
+CHAR(X)    :pequenas strings com tamanho X<255
+BOOLEAN    :boleano, true ou false
+*/
+
+/*
+Parâmetros de dados:
+
+NOT NULL       :não pode ser nulo
+PRIMARY KEY    :chave primaria
+CHECK          :
+DEFAULT        :
+AUTO_INCREMENT :preenchido de forma automática
+*/
+
+--CREATE
+CREATE TABLE tabela
+(
+	id   INTEGER NOT NULL,
+	col1 INTEGER,
+	col2 VARCHAR(20),
+	col3 DATE,
+	PRIMARY KEY(id)
+);
+ 
+CREATE TABLE test
+(
+	id   INTEGER     NOT NULL AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	PRIMARY KEY(id)
+);
+
+
+/*
+ALTER TABLE
+
+ADD    :adiciona coluna
+DROP   :remove coluna
+RENAME :renomeia
+*/
+
+--ALTER TABLE
+ALTER TABLE tabela
+	ADD col TipoDeDado;
+
+ALTER TABLE tabela
+	RENAME col0 TO col1;
+
+RENAME TABLE tab0 TO tab1;
+
+
+--UPDATE TABLE
+UPDATE tabela
+	SET col1 = NovoValor
+	WHERE condicao;
+
+
+--DROP TABLE
+DROP TABLE tabela;
+
+
+--VIEW
+CREATE VIEW tabView AS
+SELECT col1, col2, col3
+FROM tabela
+	WHERE condicao;
+
+
+CREATE VIEW List AS
+SELECT FirstName, Salary
+FROM Employes;
+
+SELECT *
+FROM List;
+
+CREATE VIEW temp AS
+SELECT id, name, mark
+FROM students
+	ORDER BY mark DESC
+	LIMIT 10;
+
+
+--Atualizando View
+CREATE OR REPLACE VIEW view1 AS
+SELECT id, name
+FROM salary;
+
+
+--DROP VIEW
+DROP VIEW view1;
